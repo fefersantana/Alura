@@ -10,6 +10,11 @@ function adicionar(){
     let nomeProduto = produto.split('-')[0];
     let precoProduto = produto.split('R$')[1];
     
+    if (produto === "Selecionar produto") {
+        alert("Por favor, selecione um produto válido!");
+        return; // sai da função sem adicionar nada
+    }
+    
     //ler quantidade
     let quantidade = document.getElementById('quantidade').value; 
 
@@ -30,7 +35,10 @@ function adicionar(){
     campoTotal.textContent = `R$${totalGeral}`;
 
     //resetar campo de 'quantidade' ao lado do botao adicionar
-    document.getElementById('quantidade').value = 0;
+    document.getElementById('quantidade').value = '';
+
+    //reseta nome do produto a selecionar
+    document.getElementById('produto').value = "Selecionar produto";
 }
 
 function limpar(){
