@@ -3,24 +3,28 @@ let maxSuperior = document.getElementById('qtd-superior').textContent = 200;
 let maxInferior = document.getElementById('qtd-inferior').textContent = 400;
 
 function comprar(){
+
     //pegar parametros
     let ingresso = document.getElementById('tipo-ingresso').value;
     let quantidade = document.getElementById('qtd').value;
 
+    //validar qtd > 0
+    if (quantidade <= 0) {
+        alert('Por favor, insira uma quantidade válida.');
+        return;
+    }
+    
     //diminuir do total
     switch (ingresso){
-        case "pista":{
+        case "pista":
             maxPista = checarAssentos(quantidade,maxPista);
             break;
-        }
-        case "superior": {
+        case "superior":
             maxSuperior = checarAssentos(quantidade,maxSuperior);
             break;
-        }
-        case "inferior": {
+        case "inferior": 
             maxInferior = checarAssentos(quantidade,maxInferior);
             break;
-        }
     }
 
     //display diminuido do total
