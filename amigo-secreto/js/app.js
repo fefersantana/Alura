@@ -2,17 +2,18 @@ let amigos = [];
 
 function adicionar(){
     let amigo = document.getElementById('nome-amigo');
-    
+    let nomeUpper = amigo.value.toUpperCase();
+
     if(amigo.value == ''){
         alert('Informe o nome de um amigo.');
         return;
-    } else if (amigos.includes(amigo.value)){
+    } else if (amigos.includes(nomeUpper)){
         alert ('Amigo ja adicionado.');
         return;
     }
 
     let lista = document.getElementById('lista-amigos');
-    amigos.push(amigo.value);
+    amigos.push(nomeUpper);
 
     if (lista.textContent == ''){
         lista.textContent = amigo.value;
